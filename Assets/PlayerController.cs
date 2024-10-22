@@ -5,23 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody _compRigidbody;
+    [SerializeField] float speedMove;
 
     private void Awake()
     {
         _compRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other!=null && other.gameObject.tag == "CubeZ")
-        {
-
-        }
-        else if (other != null && other.gameObject.tag == "CubeX")
-        {
-
-        }
-    }
+    
 
 
     private void FixedUpdate()

@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CalculateManagerController : MonoBehaviour
 {
+    [SerializeField] GameObject[] arrayCubes;
+
+
 
 }
