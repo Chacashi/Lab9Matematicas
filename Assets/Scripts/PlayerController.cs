@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody _compRigidbody;
     [SerializeField] float velocity;
+    [SerializeField] float aceleration;
     [SerializeField] TMP_Text textVelocity;
     [SerializeField]  Vector3 PositionToMove;
+    private int time = 0;
 
     private void Awake()
     {
@@ -25,8 +27,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position,PositionToMove,velocity * Time.deltaTime);
+        textVelocity.text = ""+ velocity * Time.deltaTime + aceleration * time * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position,PositionToMove,velocity * Time.deltaTime + aceleration * time * Time.deltaTime );
+        time++;
+       
     }
+
+
 
     public void SetNewPosition(Vector3 newPosition)
     {
@@ -35,7 +42,9 @@ public class PlayerController : MonoBehaviour
     public void SetVelocity(float _velocity)
     {
         velocity = _velocity;
+        time = 0;
         textVelocity.text = "Velocidad: " + velocity.ToString();
+
     }
 
     
